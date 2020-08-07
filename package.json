@@ -1,0 +1,39 @@
+{
+  "name": "react-password-checklist",
+  "version": "1.0.0",
+  "description": "A React Component to display the success or failure of password strength rules",
+  "public": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sators/react-password-checklist.git"
+  },
+  "author": "Sators <sators@sators.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sators/react-password-checklist/issues"
+  },
+  "homepage": "https://github.com/sators/react-password-checklist#readme",
+  "dependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@types/storybook__addon-knobs": "^5.2.1",
+    "@types/storybook__react": "^5.2.1",
+    "@types/styled-components": "^5.1.2",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7"
+  }
+}
