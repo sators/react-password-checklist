@@ -1,6 +1,19 @@
 {
   "name": "react-password-checklist",
   "version": "1.0.0",
+  "keywords": [
+    "password",
+    "strength",
+    "indicator",
+    "meter",
+    "validator",
+    "validation",
+    "form",
+    "signup",
+    "account",
+    "creation",
+    "signin"
+  ]
   "description": "A React Component to display the success or failure of password strength rules",
   "public": true,
   "main": "dist/index.js",
@@ -20,6 +33,9 @@
     "url": "https://github.com/sators/react-password-checklist/issues"
   },
   "homepage": "https://github.com/sators/react-password-checklist#readme",
+  "dependencies": {
+    "styled-components": "^5.1.1",
+  },
   "peerDependencies": {
     "react": "^16.8.0"
   },
@@ -33,7 +49,6 @@
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
     "react-docgen-typescript-loader": "^3.7.2",
-    "styled-components": "^5.1.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7"
   }

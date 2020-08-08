@@ -1,4 +1,6 @@
 # React Password Checklist
+[![npm version](https://badge.fury.io/js/react-password-checklist.svg)](https://badge.fury.io/js/react-password-checklist) [![GitHub version](https://badge.fury.io/gh/sators%2Freact-password-checklist.svg)](https://badge.fury.io/gh/sators%2Freact-password-checklist)
+
 A React Component to display the success or failure of password strength rules that updates as a user types.
 
 ## Example
@@ -12,24 +14,38 @@ A React Component to display the success or failure of password strength rules t
 
 _Note: react is a peer dependency. You should be using this in a React project._
 
-## Using the component
+## Example Usage
 
 ```
+import React, {useState} from "react"
 import ReactPasswordChecklist from "react-password-checklist"
-...
-<ReactPasswordChecklist
-	rules={["length","specialChar","number","capital","match"]}
-	minLength={5}
-	value: "password"
-	valueAgain: "password again"
-	className="customClass"
-	style={{ display: 'none' }}
-	iconSize: {18}
-	validColor: "#4BCA81",
-	invalidColor: "#FF0033",
-	onChange: (isValid) => {}
-/>
+
+const SignUp = () => {
+	const [password, setPassword] = useState("")
+	const [passwordVerify, setPasswordVerify] = useState("")
+	return (
+		<form>
+			<label>Password:</label>
+			<input type="password" onChange={e => setPassword(e.target.value)} value={password}>
+			<label>Password Again:</label>
+			<input type="password" onChange={e => setPasswordVerify(e.target.value)} value={passwordVerify}>
+
+			<ReactPasswordChecklist
+				rules={["length","specialChar","number","capital","match"]}
+				minLength={5}
+				value={password}
+				valueAgain={passwordVerify}
+				iconSize={18}
+				validColor="#4BCA81",
+				invalidColor="#FF0033",
+				onChange={(isValid) => {}}
+			/>
+		</form>
+	)
+}
 ```
+
+
 
 ## Available Rules
 
@@ -59,17 +75,20 @@ Valid if the password matches the confirm password valud. Requires `valueAgain` 
 
 | Prop  | Description  | Type  | Required  | Default  |
 |---|---|---|---|---|
-|  rules | Rules to display in the order desired. Options are `length`, `specialChar`, `number`, `capital`, `match`  | array  | yes |
+|  rules | Rules to display in the order desired.<br />Options are `length`, `specialChar`,<br />`number`, `capital`, `match`  | array  | yes |
 |  value | Current potential password  | string  | yes |
-|  minLength | Minimum Password Length  | number  | Only when using `length` rule |
-|  valueAgain | Current potential password confirmation  | string  | Only when using `match` rule |
-|  onChange | Callback that is triggered when the password becomes valid or invalid across all rules | function  |  | `(isValid) => {}`
+|  minLength | Minimum Password Length  | number  | Only with<br />`length` rule |
+|  valueAgain | Current potential password confirmation  | string  | Only with<br />`match` rule |
+|  onChange | Callback that is triggered when the<br />password becomes valid or invalid across<br />all rules. | function  |  | `(isValid) => {}`
 |  className | Class applied to the entire component  | string  |  |
-|  style | Inline styles applied to the outer component wrapper  | object  |  |
+|  style | Inline styles applied to the<br />outer component wrapper  | object  |  |
 |  iconSize | Size of ✔ or 𐄂 icon  | number  |  | `18` |
 |  validColor | Color of checkmark icon  | string  |  | `#4BCA81` |
 |  invalidColor | Color of X icon  | string  |  | `#FF0033` |
 
+## Classes
+* `valid` - Valid Message
+* `invalid` - Invalid Message
 
 ## Run Locally
 
