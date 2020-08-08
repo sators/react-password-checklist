@@ -13,7 +13,7 @@
     "account",
     "creation",
     "signin"
-  ]
+  ],
   "description": "A React Component to display the success or failure of password strength rules",
   "public": true,
   "main": "dist/index.js",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/sators/react-password-checklist#readme",
   "dependencies": {
-    "styled-components": "^5.1.1",
+    "styled-components": "^5.1.1"
   },
   "peerDependencies": {
     "react": "^16.8.0"
