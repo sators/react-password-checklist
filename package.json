@@ -20,10 +20,11 @@
     "url": "https://github.com/sators/react-password-checklist/issues"
   },
   "homepage": "https://github.com/sators/react-password-checklist#readme",
-  "dependencies": {
-    "react": "^16.13.1"
+  "peerDependencies": {
+    "react": "^16.8.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@types/storybook__addon-knobs": "^5.2.1",

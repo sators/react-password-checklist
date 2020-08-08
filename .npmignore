@@ -1,4 +1,5 @@
 src/
-.storybook
+demo/
+.storybook/
 tsconfig.json
 yarn.lock

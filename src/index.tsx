@@ -1,92 +1,101 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 interface PasswordProps {
-	value: string
-	valueAgain: string
-	minLength: number
-	iconSize?: number
-	validColor?: string
-	invalidColor?: string
+	value: string,
+	valueAgain: string,
+	minLength?: number,
+	iconSize?: number,
+	validColor?: string,
+	invalidColor?: string,
+	onChange?: (isValid: boolean) => any,
 }
-type RuleNames = "length"|"specialChar"|"number"|"capital"|"match"
+export type RuleNames = "length"|"specialChar"|"number"|"capital"|"match"
 
 export interface ReactPasswordChecklistProps extends PasswordProps {
-	className?: string
-	style?: React.CSSProperties
-	rules: Array<RuleNames>
+	className?: string,
+	style?: React.CSSProperties,
+	rules: Array<RuleNames>,
 }
 const ReactPasswordProps:React.FC<ReactPasswordChecklistProps> = ({
 	className,
 	style,
 	rules,
+	value,
+	valueAgain,
+	minLength,
+	onChange,
 	...remainingProps}) => {
-		const ruleComponents: { [key in RuleNames]: React.FC; } = {
-			length: Length,
-			specialChar: SpecialChar,
-			number: Numeric,
-			capital: Capital,
-			match: Match,
+		const [isValid, setIsValid] = useState(false)
+		const ruleDefinitions: { [key in RuleNames]: { valid: boolean, message: string } } = {
+			length: {
+				valid: value.length >= (minLength || 100),
+				message: `Password has more than ${minLength} characters.`,
+			},
+			specialChar: {
+				valid: /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(value),
+				message: "Password has special characters.",
+			},
+			number: {
+				valid: /\d/g.test(value),
+				message: "Password has a number.",
+			},
+			capital: {
+				valid: (() => {
+					var i = 0
+					if (value.length === 0){
+						return false
+					}
+					while ( i < value.length){
+						const character = value.charAt(i);
+						if (character == character.toLowerCase()){
+							// Character is lowercase, numeric, or a symbol
+						} else if (character == character.toUpperCase()) {
+							return true;
+						}
+						i++;
+					}
+					return false
+				})(),
+				message: "Password has a capital letter.",
+			},
+			match: {
+				valid: value.length > 0 && value === valueAgain,
+				message: "Passwords match.",
+			},
 		}
-		const enabledRules = rules.filter(rule => Boolean(ruleComponents[rule]))
+		const enabledRules = rules.filter(rule => Boolean(ruleDefinitions[rule]))
+		useEffect(() => {
+			if(enabledRules.every(rule => ruleDefinitions[rule].valid)){
+
+				console.log("every rule valid")
+				setIsValid(true)
+			} else {
+				console.log("not every rule valid")
+				setIsValid(false)
+			}
+		}, [value, valueAgain])
+		useEffect(() => {
+			if(typeof onChange === "function"){
+				console.log("calling isValid")
+				onChange(isValid)
+			}
+		}, [isValid])
 		return (
 			<UL
 				className={className}
 				style={style}
 			>
 				{enabledRules.map(rule => {
-					const Comp = ruleComponents[rule]
+					const { message, valid } = ruleDefinitions[rule]
 					return (
-						<Comp key={rule} {...remainingProps} />
+						<Rule key={rule} valid={valid} {...remainingProps}>{message}</Rule>
 					)
 				})}
 			</UL>
 		)
 };
 
-const Length:React.FC<PasswordProps> = ({ value, minLength, ...props }) => {
-	const valid = value.length >= minLength
-	return (
-		<Rule valid={valid} {...props}>Password has more than {minLength} characters.</Rule>
-	)
-}
-const SpecialChar:React.FC<PasswordProps> = ({ value, ...props }) => {
-	const valid = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(value)
-	return (
-		<Rule valid={valid} {...props}>Password has special characters.</Rule>
-	)
-}
-const Numeric:React.FC<PasswordProps> = ({ value, ...props }) => {
-	const valid = /\d/g.test(value)
-	return (
-		<Rule valid={valid} {...props}>Password has a number.</Rule>
-	)
-}
-const Match:React.FC<PasswordProps> = ({ value, valueAgain, ...props }) => {
-	const valid = value.length > 0 && value === valueAgain
-	return (
-		<Rule valid={valid} {...props}>Passwords match.</Rule>
-	)
-}
-const Capital:React.FC<PasswordProps> = ({ value, ...props }) => {
-	let valid = false
-	let i = 1
-	while ( i <= value.length){
-		const character = value.charAt(i);
-		if (!isNaN(parseInt(character) * 1)){
-			// Character is numeric
-		} else {
-			if (character == character.toUpperCase()) {
-				valid = true;
-				break;
-			}
-		}
-		i++;
-	}
-	return (
-		<Rule valid={valid} {...props}>Password has a capital letter.</Rule>
-	)
-}
 interface RuleProps {
 	valid: boolean
 	iconSize?: number
@@ -127,7 +136,7 @@ const Svg = styled.svg`
 ReactPasswordProps.defaultProps = {
 	iconSize: 18,
 	validColor: "#4BCA81",
-	invalidColor: "#ff0033",
+	invalidColor: "#FF0033",
 }
 
 export default ReactPasswordProps
