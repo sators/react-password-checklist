@@ -1,6 +1,9 @@
 # React Password Checklist
 A React Component to display the success or failure of password strength rules that updates as a user types.
 
+## Example
+![React Password Checklist Demo](demo/demo.gif)
+
 ## Install in your project
 
 `npm install --save react-password-strength`
