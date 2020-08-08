@@ -21,7 +21,8 @@
   "scripts": {
     "build": "tsc",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
