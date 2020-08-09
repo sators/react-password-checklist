@@ -1,5 +1,5 @@
 # React Password Checklist
-[![npm version](https://badge.fury.io/js/react-password-checklist.svg)](https://badge.fury.io/js/react-password-checklist) [![GitHub version](https://badge.fury.io/gh/sators%2Freact-password-checklist.svg)](https://badge.fury.io/gh/sators%2Freact-password-checklist)
+[![Build Status](https://travis-ci.org/sators/react-password-checklist.svg?branch=master)](https://travis-ci.org/sators/react-password-checklist) [![Coverage Status](https://coveralls.io/repos/github/sators/react-password-checklist/badge.svg?branch=master)](https://coveralls.io/github/sators/react-password-checklist?branch=master) [![npm version](https://badge.fury.io/js/react-password-checklist.svg)](https://badge.fury.io/js/react-password-checklist) [![GitHub version](https://badge.fury.io/gh/sators%2Freact-password-checklist.svg)](https://badge.fury.io/gh/sators%2Freact-password-checklist)
 
 A React Component to display the success or failure of password strength rules that updates as a user types.
 
