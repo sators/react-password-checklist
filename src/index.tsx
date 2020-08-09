@@ -68,16 +68,13 @@ const ReactPasswordProps:React.FC<ReactPasswordChecklistProps> = ({
 		useEffect(() => {
 			if(enabledRules.every(rule => ruleDefinitions[rule].valid)){
 
-				console.log("every rule valid")
 				setIsValid(true)
 			} else {
-				console.log("not every rule valid")
 				setIsValid(false)
 			}
 		}, [value, valueAgain])
 		useEffect(() => {
 			if(typeof onChange === "function"){
-				console.log("calling isValid")
 				onChange(isValid)
 			}
 		}, [isValid])
