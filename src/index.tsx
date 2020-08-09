@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 interface PasswordProps {
 	value: string,
-	valueAgain: string,
+	valueAgain?: string,
 	minLength?: number,
 	iconSize?: number,
 	validColor?: string,
