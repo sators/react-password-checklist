@@ -20,9 +20,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "prepare": "npm run build",
+    "storybook": "start-storybook -p 9009 -s public",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
@@ -55,12 +56,13 @@
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "coveralls": "^3.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "jest": "^26.2.2",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.8.0",
     "ts-jest": "^26.1.4",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7"
