@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "lib": ["es5", "es6", "es7", "es2017", "dom", "esnext"],
     "sourceMap": false,
     "allowJs": false,
     "jsx": "react",
@@ -21,7 +21,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "include": ["src/index.tsx"],
   "exclude": ["node_modules", "dist", "scripts", "stories.*"]
