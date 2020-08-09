@@ -18,6 +18,7 @@
   "public": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "build-storybook": "build-storybook -s public",
