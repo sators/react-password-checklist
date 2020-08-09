@@ -1,6 +1,6 @@
 # React Password Checklist
 [![npm version](https://badge.fury.io/js/react-password-checklist.svg)](https://badge.fury.io/js/react-password-checklist) ![Minzipped Size](https://img.shields.io/bundlephobia/minzip/react-password-checklist) ![NPM Downloads](https://img.shields.io/npm/dw/react-password-checklist) ![NPM License](https://img.shields.io/npm/l/react-password-checklist) 
-<br /> [![Build Status](https://travis-ci.org/sators/react-password-checklist.svg?branch=master)](https://travis-ci.org/sators/react-password-checklist) [![Coverage Status](https://coveralls.io/repos/github/sators/react-password-checklist/badge.svg?branch=master)](https://coveralls.io/github/sators/react-password-checklist?branch=master) [![Issues](https://github.com/sators/react-password-checklist/issues)](https://img.shields.io/github/issues/sators/react-password-checklist) ![Pull Requests](https://img.shields.io/github/issues-pr/sators/react-password-checklist) [![Twitter](https://img.shields.io/twitter/follow/sators.svg?style=social&label=@sators)](https://twitter.com/sators)
+<br /> [![Build Status](https://travis-ci.org/sators/react-password-checklist.svg?branch=master)](https://travis-ci.org/sators/react-password-checklist) [![Coverage Status](https://coveralls.io/repos/github/sators/react-password-checklist/badge.svg?branch=master)](https://coveralls.io/github/sators/react-password-checklist?branch=master) [![Issues](https://img.shields.io/github/issues/sators/react-password-checklist)](https://github.com/sators/react-password-checklist/issues) [![Pull Requests](https://img.shields.io/github/issues-pr/sators/react-password-checklist)](https://github.com/sators/react-password-checklist/pulls) [![Twitter](https://img.shields.io/twitter/follow/sators.svg?style=social&label=@sators)](https://twitter.com/sators)
 
 A React Component to display the success or failure of password strength rules that updates as a user types.
 
@@ -9,9 +9,9 @@ A React Component to display the success or failure of password strength rules t
 
 ## Install in your project
 
-`npm install --save react-password-strength`
+`npm install --save react-password-checklist`
 
-`yarn add react-password-strength`
+`yarn add react-password-checklist`
 
 _Note: react is a peer dependency. You should be using this in a React project._
 
@@ -19,26 +19,23 @@ _Note: react is a peer dependency. You should be using this in a React project._
 
 ```
 import React, {useState} from "react"
-import ReactPasswordChecklist from "react-password-checklist"
+import PasswordChecklist from "react-password-checklist"
 
 const SignUp = () => {
 	const [password, setPassword] = useState("")
-	const [passwordVerify, setPasswordVerify] = useState("")
+	const [passwordAgain, setPasswordAgain] = useState("")
 	return (
 		<form>
 			<label>Password:</label>
-			<input type="password" onChange={e => setPassword(e.target.value)} value={password}>
+			<input type="password" onChange={e => setPassword(e.target.value)}>
 			<label>Password Again:</label>
-			<input type="password" onChange={e => setPasswordVerify(e.target.value)} value={passwordVerify}>
+			<input type="password" onChange={e => setPasswordAgain(e.target.value)}>
 
-			<ReactPasswordChecklist
+			<PasswordChecklist
 				rules={["length","specialChar","number","capital","match"]}
 				minLength={5}
 				value={password}
-				valueAgain={passwordVerify}
-				iconSize={18}
-				validColor="#4BCA81",
-				invalidColor="#FF0033",
+				valueAgain={passwordAgain}
 				onChange={(isValid) => {}}
 			/>
 		</form>
@@ -87,9 +84,9 @@ Valid if the password matches the confirm password valud. Requires `valueAgain` 
 |  validColor | Color of checkmark icon  | string  |  | `#4BCA81` |
 |  invalidColor | Color of X icon  | string  |  | `#FF0033` |
 
-## Classes
-* `valid` - Valid Message
-* `invalid` - Invalid Message
+## Available Classes
+* `.valid` - Valid Message
+* `.invalid` - Invalid Message
 
 ## Run Locally
 
