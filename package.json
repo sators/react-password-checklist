@@ -1,6 +1,6 @@
 {
   "name": "react-password-checklist",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "keywords": [
     "password",
     "strength",
@@ -18,7 +18,9 @@
   "public": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "build-storybook": "build-storybook -s public",
