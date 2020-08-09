@@ -9,7 +9,7 @@ cache:
   directories:
   - node_modules
 before_install:
-- yarn update
+- yarn upgrade
 install:
 - yarn install
 script:
