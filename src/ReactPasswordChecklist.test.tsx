@@ -63,6 +63,13 @@ describe('ReactPasswordChecklist Test Suite', () => {
 			/>)
 			expect(result.find('li').hasClass('valid')).toBeTruthy()
 		});
+		it('Sets valid', () => {
+			const result = mount(<ReactPasswordChecklist
+				rules={["specialChar"]}
+				value="@"
+			/>)
+			expect(result.find('li').hasClass('valid')).toBeTruthy()
+		});
 	})
 	describe('capital', () => {
 		it('Displays the capital message', () => {
