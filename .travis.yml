@@ -1,17 +1,25 @@
 sudo: false
 language: node_js
 node_js:
-- '10'
-branches:
-  only:
-  - master
-cache:
-  directories:
-  - node_modules
+  - "10"
+cache: yarn
 before_install:
-- yarn upgrade
+  - yarn upgrade
 install:
-- yarn install
-script:
-- yarn test
-- yarn coveralls
+  - yarn install
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn test
+    - stage: coverage
+      script:
+        - yarn test
+        - yarn coveralls
+stages:
+  - name: test
+    # require the type to be a PR
+    if: type = pull_request
+  - name: coverage
+    # require the type to be push to master
+    if: type = push AND branch = master
