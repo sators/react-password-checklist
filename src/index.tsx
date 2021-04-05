@@ -33,7 +33,7 @@ const ReactPasswordProps:React.FC<ReactPasswordChecklistProps> = ({
 				message: `Password has more than ${minLength} characters.`,
 			},
 			specialChar: {
-				valid: /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(value),
+				valid: /[~`!#$%\^&*@+=\-\[\]\\';,/{}|\\":<>\?]/g.test(value),
 				message: "Password has special characters.",
 			},
 			number: {
