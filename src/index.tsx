@@ -9,6 +9,9 @@ interface PasswordProps {
 	validColor?: string
 	invalidColor?: string
 	onChange?: (isValid: boolean) => any
+	messages?: {
+		[key in RuleNames]?: string
+	}
 }
 export type RuleNames =
 	| "length"
@@ -30,6 +33,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 	valueAgain,
 	minLength,
 	onChange,
+	messages = {},
 	...remainingProps
 }) => {
 	const [isValid, setIsValid] = useState(false)
@@ -38,15 +42,16 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 	} = {
 		length: {
 			valid: value.length >= (minLength || 100),
-			message: `Password has more than ${minLength} characters.`,
+			message:
+				messages.length || `Password has more than ${minLength} characters.`,
 		},
 		specialChar: {
 			valid: /[~`!#$%\^&*@+=\-\[\]\\';,/{}|\\":<>\?\.]/g.test(value),
-			message: "Password has special characters.",
+			message: messages.specialChar || "Password has special characters.",
 		},
 		number: {
 			valid: /\d/g.test(value),
-			message: "Password has a number.",
+			message: messages.number || "Password has a number.",
 		},
 		capital: {
 			valid: (() => {
@@ -65,11 +70,11 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 				}
 				return false
 			})(),
-			message: "Password has a capital letter.",
+			message: messages.capital || "Password has a capital letter.",
 		},
 		match: {
 			valid: value.length > 0 && value === valueAgain,
-			message: "Passwords match.",
+			message: messages.match || "Passwords match.",
 		},
 	}
 	const enabledRules = rules.filter((rule) => Boolean(ruleDefinitions[rule]))

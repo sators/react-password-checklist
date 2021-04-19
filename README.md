@@ -45,6 +45,40 @@ const SignUp = () => {
 }
 ```
 
+### Custom Messages/Translations
+
+```
+import React, {useState} from "react"
+import PasswordChecklist from "react-password-checklist"
+
+const SignUp = () => {
+	const [password, setPassword] = useState("")
+	const [passwordAgain, setPasswordAgain] = useState("")
+	return (
+		<form>
+			<label>Password:</label>
+			<input type="password" onChange={e => setPassword(e.target.value)}>
+			<label>Password Again:</label>
+			<input type="password" onChange={e => setPasswordAgain(e.target.value)}>
+
+			<PasswordChecklist
+				rules={["length","specialChar","number","capital","match"]}
+				minLength={8}
+				value={password}
+				valueAgain={passwordAgain}
+				messages={{
+					length: "La contraseña tiene más de 8 caracteres.",
+					specialChar: "La contraseña tiene caracteres especiales.",
+					number: "La contraseña tiene un número.",
+					capital: "La contraseña tiene una letra mayúscula.",
+					match: "Las contraseñas coinciden.",
+				}}
+			/>
+		</form>
+	)
+}
+```
+
 ## Available Rules
 
 Customize the component to display only the rules you need in the desired order you wish to display them.
@@ -78,6 +112,7 @@ Valid if the password matches the confirm password valud. Requires `valueAgain` 
 | minLength    | Minimum Password Length                                                                                            | number   | Only with<br />`length` rule |
 | valueAgain   | Current potential password confirmation                                                                            | string   | Only with<br />`match` rule  |
 | onChange     | Callback that is triggered when the<br />password becomes valid or invalid across<br />all rules.                  | function |                              | `(isValid) => {}` |
+| messages     | Object with keys as rules, and values as strings to use as the message to be displayed                             | object   |                              |
 | className    | Class applied to the entire component                                                                              | string   |                              |
 | style        | Inline styles applied to the<br />outer component wrapper                                                          | object   |                              |
 | iconSize     | Size of ✔ or 𐄂 icon                                                                                                | number   |                              | `18`              |

@@ -18,7 +18,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		expect(onChange).toHaveBeenCalledWith(true)
 	})
 	describe("length", () => {
-		it("Displays the length message", () => {
+		it("Displays the default length message", () => {
 			const result = mount(
 				<ReactPasswordChecklist rules={["length"]} minLength={6} value="" />
 			)
@@ -48,7 +48,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		})
 	})
 	describe("specialChar", () => {
-		it("Displays the specialChar message", () => {
+		it("Displays the default specialChar message", () => {
 			const result = mount(
 				<ReactPasswordChecklist rules={["specialChar"]} value="" />
 			)
@@ -82,7 +82,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		})
 	})
 	describe("capital", () => {
-		it("Displays the capital message", () => {
+		it("Displays the default capital message", () => {
 			const result = mount(
 				<ReactPasswordChecklist rules={["capital"]} value="" />
 			)
@@ -104,7 +104,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		})
 	})
 	describe("number", () => {
-		it("Displays the capital message", () => {
+		it("Displays the default capital message", () => {
 			const result = mount(
 				<ReactPasswordChecklist rules={["number"]} value="" />
 			)
@@ -124,7 +124,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		})
 	})
 	describe("match", () => {
-		it("Displays the match message", () => {
+		it("Displays the default match message", () => {
 			const result = mount(
 				<ReactPasswordChecklist
 					rules={["match"]}
@@ -155,6 +155,63 @@ describe("ReactPasswordChecklist Test Suite", () => {
 				/>
 			)
 			expect(result.find("li").hasClass("valid")).toBeTruthy()
+		})
+	})
+	describe("messages", () => {
+		it("Displays a custom length message", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["length"]}
+					value="test"
+					valueAgain="test"
+					messages={{ length: "Custom length Message" }}
+				/>
+			)
+			expect(result.find("span").text()).toEqual("Custom length Message")
+		})
+		it("Displays a custom specialChar message", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["specialChar"]}
+					value="test"
+					valueAgain="test"
+					messages={{ specialChar: "Custom specialChar Message" }}
+				/>
+			)
+			expect(result.find("span").text()).toEqual("Custom specialChar Message")
+		})
+		it("Displays a custom number message", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["number"]}
+					value="test"
+					valueAgain="test"
+					messages={{ number: "Custom number Message" }}
+				/>
+			)
+			expect(result.find("span").text()).toEqual("Custom number Message")
+		})
+		it("Displays a custom capital message", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["capital"]}
+					value="test"
+					valueAgain="test"
+					messages={{ capital: "Custom capital Message" }}
+				/>
+			)
+			expect(result.find("span").text()).toEqual("Custom capital Message")
+		})
+		it("Displays a custom match message", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["match"]}
+					value="test"
+					valueAgain="test"
+					messages={{ match: "Custom match Message" }}
+				/>
+			)
+			expect(result.find("span").text()).toEqual("Custom match Message")
 		})
 	})
 })
