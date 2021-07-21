@@ -11,14 +11,18 @@ storiesOf("ReactPasswordChecklist", module)
 			value={text("Password", "")}
 			valueAgain={text("Password Again", "")}
 			minLength={number("Minimum Length", 8)}
+			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
 			rules={
 				array("Rules", [
-					"length",
+					"minLength",
 					"specialChar",
 					"number",
 					"capital",
 					"match",
+					"notEmpty",
+					"maxLength",
+					"lowercase",
 				]) as Array<RuleNames>
 			}
 		/>
@@ -31,7 +35,7 @@ storiesOf("ReactPasswordChecklist", module)
 			onChange={action("onChange")}
 			rules={
 				array("Rules", [
-					"length",
+					"minLength",
 					"specialChar",
 					"number",
 					"capital",
@@ -39,7 +43,7 @@ storiesOf("ReactPasswordChecklist", module)
 				]) as Array<RuleNames>
 			}
 			messages={{
-				length: "La contraseña tiene más de 8 caracteres.",
+				minLength: "La contraseña tiene más de 8 caracteres.",
 				specialChar: "La contraseña tiene caracteres especiales.",
 				number: "La contraseña tiene un número.",
 				capital: "La contraseña tiene una letra mayúscula.",
