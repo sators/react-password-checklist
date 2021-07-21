@@ -34,7 +34,7 @@ const SignUp = () => {
 			<input type="password" onChange={e => setPasswordAgain(e.target.value)}>
 
 			<PasswordChecklist
-				rules={["length","specialChar","number","capital","match"]}
+				rules={["minLength","specialChar","number","capital","match"]}
 				minLength={5}
 				value={password}
 				valueAgain={passwordAgain}
@@ -62,12 +62,12 @@ const SignUp = () => {
 			<input type="password" onChange={e => setPasswordAgain(e.target.value)}>
 
 			<PasswordChecklist
-				rules={["length","specialChar","number","capital","match"]}
+				rules={["minLength","specialChar","number","capital","match"]}
 				minLength={8}
 				value={password}
 				valueAgain={passwordAgain}
 				messages={{
-					length: "La contraseña tiene más de 8 caracteres.",
+					minLength: "La contraseña tiene más de 8 caracteres.",
 					specialChar: "La contraseña tiene caracteres especiales.",
 					number: "La contraseña tiene un número.",
 					capital: "La contraseña tiene una letra mayúscula.",
