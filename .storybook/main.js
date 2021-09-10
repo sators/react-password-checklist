@@ -1,6 +1,9 @@
 module.exports = {
 	stories: ['../src/**/*.stories.tsx'],
-	webpackFinal: async config => {
+    addons: [
+        '@pxblue/storybook-rtl-addon/register',
+    ],
+    webpackFinal: async config => {
 		config.module.rules.push({
 			test: /\.(ts|tsx)$/,
 			loader: require.resolve('babel-loader'),

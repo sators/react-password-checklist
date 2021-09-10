@@ -3,7 +3,9 @@ import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import ReactPasswordChecklist, { RuleNames } from "./index"
 
-import { withKnobs, text, number, array } from "@storybook/addon-knobs"
+import { withKnobs, text, number, array, boolean } from "@storybook/addon-knobs"
+import { getDirection } from "@pxblue/storybook-rtl-addon"
+
 storiesOf("ReactPasswordChecklist", module)
 	.addDecorator(withKnobs)
 	.add("Default", () => (
@@ -13,6 +15,7 @@ storiesOf("ReactPasswordChecklist", module)
 			minLength={number("Minimum Length", 8)}
 			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
+            rtl={boolean('rtl', getDirection() == 'rtl')}
 			rules={
 				array("Rules", [
 					"minLength",
@@ -33,6 +36,7 @@ storiesOf("ReactPasswordChecklist", module)
 			valueAgain={text("Password Again", "")}
 			minLength={number("Minimum Length", 8)}
 			onChange={action("onChange")}
+            rtl={boolean('rtl', getDirection() == 'rtl')}
 			rules={
 				array("Rules", [
 					"minLength",
