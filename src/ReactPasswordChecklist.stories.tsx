@@ -54,4 +54,26 @@ storiesOf("ReactPasswordChecklist", module)
 				match: "Las contraseñas coinciden.",
 			}}
 		/>
+	)).add("Custom Messages RTL (Persian)", () => (
+		<ReactPasswordChecklist
+			value={text("Password", "")}
+			valueAgain={text("Password Again", "")}
+			minLength={8}
+			onChange={action("onChange")}
+            rtl={true}
+			rules={
+				array("Rules", [
+					"minLength",
+					"specialChar",
+					"number",
+					"capital",
+				]) as Array<RuleNames>
+			}
+			messages={{
+				minLength: "رمز عبور باید حداقل ۸ کارکتر باشد.",
+				specialChar: "رمز عبور باید شامل کاراکترهای خاص (نمادها) باشد",
+				number: "رمز عبور باید شامل اعداد باشد ",
+				capital: "رمز عبور باید ترکیبی از حروف کوچک و بزرگ باشد.",
+			}}
+		/>
 	))
