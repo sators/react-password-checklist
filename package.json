@@ -42,14 +42,14 @@
 	},
 	"homepage": "https://github.com/sators/react-password-checklist#readme",
 	"dependencies": {
-		"@pxblue/storybook-rtl-addon": "^1.0.1",
 		"styled-components": "^5.1.1"
 	},
 	"peerDependencies": {
-		"react": "^16.8.0"
+		"react": "^16.8.0|^17.0.2"
 	},
 	"devDependencies": {
 		"@babel/plugin-syntax-logical-assignment-operators": "^7.10.4",
+		"@pxblue/storybook-rtl-addon": "^1.0.1",
 		"@storybook/addon-actions": "^6.2.8",
 		"@storybook/addon-knobs": "^6.2.8",
 		"@storybook/react": "^6.2.8",
