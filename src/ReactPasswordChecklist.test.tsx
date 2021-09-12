@@ -17,6 +17,12 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		)
 		expect(onChange).toHaveBeenCalledWith(true)
 	})
+	it("adds rtl styles when `rtl` prop is set", () => {
+		const result = mount(
+			<ReactPasswordChecklist rules={["minLength"]} minLength={6} value="123456" rtl />,
+		)
+		expect(result.find("ul").hasClass("rtl")).toBeTruthy()
+	})
 	describe("iconComponents", () => {
 		it("has the default icons", () => {
 			const result = mount(
