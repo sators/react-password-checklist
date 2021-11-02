@@ -139,8 +139,12 @@ Valid if the password and confirm passwords both contain any character. Requires
 - `.valid` - Valid Message
 - `.invalid` - Invalid Message
 
+## Contributing
+
+PRs are welcome for additional functionality! See the Run Locally section below. Pull requests should include unit tests and potentially storybook stories to cover the updates. Thanks!
+
 ## Run Locally
 
-`npm run storybook`
+`yarn` to install dependencies.
 
 `yarn storybook`
