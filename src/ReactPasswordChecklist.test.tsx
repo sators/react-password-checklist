@@ -126,6 +126,11 @@ describe("ReactPasswordChecklist Test Suite", () => {
 			const result = mount(<ReactPasswordChecklist rules={["specialChar"]} value="." />)
 			expect(result.find("li").hasClass("valid")).toBeTruthy()
 		})
+
+		it("Sets valid with _", () => {
+			const result = mount(<ReactPasswordChecklist rules={["specialChar"]} value="_" />)
+			expect(result.find("li").hasClass("valid")).toBeTruthy()
+		})
 	})
 	describe("capital", () => {
 		it("Displays the default capital message", () => {
