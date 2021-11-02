@@ -93,7 +93,7 @@ Valid if the password meets the maximum length. Requires `maxLength` prop to be 
 
 #### specialChar
 
-Valid if the password contains a special character from [this list](https://github.com/sators/react-password-checklist/blob/master/src/index.tsx#L44).
+Valid if the password contains a special character from [this list](https://github.com/sators/react-password-checklist/blob/master/src/index.tsx#L60).
 
 #### number
 
