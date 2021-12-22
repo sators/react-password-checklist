@@ -50,10 +50,10 @@
 	},
 	"devDependencies": {
 		"@babel/plugin-syntax-logical-assignment-operators": "^7.10.4",
-		"@pxblue/storybook-rtl-addon": "^1.0.1",
-		"@storybook/addon-actions": "^6.2.8",
+		"@pxblue/storybook-rtl-addon": "^1.1.0",
+		"@storybook/addon-actions": "^6.4.9",
 		"@storybook/addon-knobs": "^6.2.8",
-		"@storybook/react": "^6.2.8",
+		"@storybook/react": "^6.4.9",
 		"@types/enzyme": "^3.10.5",
 		"@types/enzyme-adapter-react-16": "^1.0.6",
 		"@types/jest": "^26.0.9",
