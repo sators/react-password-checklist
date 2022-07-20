@@ -27,6 +27,7 @@ export type RuleNames =
 	| "capital"
 	| "match"
 	| "lowercase"
+	| "letter"
 	| "notEmpty"
 
 export interface ReactPasswordChecklistProps extends PasswordProps {
@@ -105,6 +106,10 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 				return false
 			})(),
 			message: messages.lowercase || "Password has a lowercase letter.",
+		},
+		letter: {
+			valid: /[a-zA-Z]/g.test(value),
+			message: messages.letter || "Password has a letter.",
 		},
 		maxLength: {
 			valid: value.length <= (maxLength || 16),

@@ -191,6 +191,24 @@ describe("ReactPasswordChecklist Test Suite", () => {
 			expect(result.find("li").hasClass("valid")).toBeTruthy()
 		})
 	})
+	describe("letter", () => {
+		it("Displays the default leter message", () => {
+			const result = mount(<ReactPasswordChecklist rules={["letter"]} value="" />)
+			expect(result.find("span").text()).toEqual("Password has a letter.")
+		})
+		it("Sets invalid", () => {
+			const result = mount(<ReactPasswordChecklist rules={["letter"]} value="1234" />)
+			expect(result.find("li").hasClass("invalid")).toBeTruthy()
+		})
+		it("Sets valid with lowercase", () => {
+			const result = mount(<ReactPasswordChecklist rules={["letter"]} value="i have a letter" />)
+			expect(result.find("li").hasClass("valid")).toBeTruthy()
+		})
+		it("Sets valid with capital", () => {
+			const result = mount(<ReactPasswordChecklist rules={["letter"]} value="I HAVE A LETTER" />)
+			expect(result.find("li").hasClass("valid")).toBeTruthy()
+		})
+	})
 	describe("notEmpty", () => {
 		it("Displays the default notEmpty message", () => {
 			const result = mount(<ReactPasswordChecklist rules={["notEmpty"]} value="" />)

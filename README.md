@@ -107,6 +107,10 @@ Valid if the password contains a capital letter.
 
 Valid if the password matches the confirm password valid. Requires `valueAgain` prop to be included.
 
+#### letter
+
+Valid if the password contains a letter (capital or lowercase)
+
 #### lowercase
 
 Valid if the password contains a lowercase letter
@@ -119,7 +123,7 @@ Valid if the password and confirm passwords both contain any character. Requires
 
 | Prop           | Description                                                                                                                                                                                                                               | Type     | Required                        | Default           |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------- | ----------------- |
-| rules          | Rules to display in the order desired.<br />Options are `minLength`, `maxLength`, `specialChar`,<br />`number`, `capital`, `match`, `lowercase`, `notEmpty`                                                                               | array    | yes                             |
+| rules          | Rules to display in the order desired.<br />Options are `minLength`, `maxLength`, `specialChar`,<br />`number`, `letter`, `capital`, `match`, <br />`lowercase`, `notEmpty`                                                               | array    | yes                             |
 | value          | Current potential password                                                                                                                                                                                                                | string   | yes                             |
 | valueAgain     | Current potential password confirmation                                                                                                                                                                                                   | string   | Only with<br />`match` rule     |
 | minLength      | Minimum Password Length                                                                                                                                                                                                                   | number   | Only with<br />`minLength` rule |
