@@ -34,7 +34,7 @@ export interface ReactPasswordChecklistProps extends PasswordProps {
 	className?: string
 	style?: React.CSSProperties
 	rules: Array<RuleNames>
-    rtl?: boolean
+	rtl?: boolean
 }
 const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 	className,
@@ -44,7 +44,7 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 	valueAgain,
 	minLength,
 	maxLength,
-    rtl,
+	rtl,
 	onChange,
 	messages = {},
 	...remainingProps
@@ -134,9 +134,9 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 		}
 	}, [isValid])
 
-    if (rtl){
-        className = className ? className + ' rtl' : 'rtl';
-    }
+	if (rtl) {
+		className = className ? className + " rtl" : "rtl"
+	}
 
 	return (
 		<UL className={className} style={style}>
@@ -202,10 +202,10 @@ const Rule: React.FC<RuleProps> = ({
 const UL = styled.ul`
 	margin: 0;
 	padding: 0;
-    &.rtl svg {
-        margin-left: 5px;
-        margin-right: 0;
-    }
+	&.rtl svg {
+		margin-left: 5px;
+		margin-right: 0;
+	}
 `
 const LI = styled.li`
 	list-style-type: none;
@@ -218,7 +218,7 @@ const LI = styled.li`
 	}
 `
 const Svg = styled.svg`
-    margin-right: 5px;
+	margin-right: 5px;
 `
 
 ReactPasswordProps.defaultProps = {
