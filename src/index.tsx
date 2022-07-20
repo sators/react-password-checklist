@@ -158,6 +158,7 @@ interface RuleProps {
 	iconComponents?: CustomIconComponents
 	validColor?: string
 	invalidColor?: string
+	children?: React.ReactNode
 }
 const Rule: React.FC<RuleProps> = ({
 	valid,
