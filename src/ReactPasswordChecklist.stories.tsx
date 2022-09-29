@@ -15,7 +15,7 @@ storiesOf("ReactPasswordChecklist", module)
 			minLength={number("Minimum Length", 8)}
 			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
-            rtl={boolean('rtl', getDirection() == 'rtl')}
+			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
 					"minLength",
@@ -30,13 +30,37 @@ storiesOf("ReactPasswordChecklist", module)
 			}
 		/>
 	))
+	.add("In a small container", () => (
+		<div style={{ width: "225px" }}>
+			<ReactPasswordChecklist
+				value={text("Password", "")}
+				valueAgain={text("Password Again", "")}
+				minLength={number("Minimum Length", 8)}
+				maxLength={number("Maximum Length", 16)}
+				onChange={action("onChange")}
+				rtl={boolean("rtl", getDirection() == "rtl")}
+				rules={
+					array("Rules", [
+						"minLength",
+						"specialChar",
+						"number",
+						"capital",
+						"match",
+						"notEmpty",
+						"maxLength",
+						"lowercase",
+					]) as Array<RuleNames>
+				}
+			/>
+		</div>
+	))
 	.add("Custom Messages", () => (
 		<ReactPasswordChecklist
 			value={text("Password", "")}
 			valueAgain={text("Password Again", "")}
 			minLength={number("Minimum Length", 8)}
 			onChange={action("onChange")}
-            rtl={boolean('rtl', getDirection() == 'rtl')}
+			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
 					"minLength",
@@ -54,21 +78,15 @@ storiesOf("ReactPasswordChecklist", module)
 				match: "Las contraseñas coinciden.",
 			}}
 		/>
-	)).add("Custom Messages RTL (Persian)", () => (
+	))
+	.add("Custom Messages RTL (Persian)", () => (
 		<ReactPasswordChecklist
 			value={text("Password", "")}
 			valueAgain={text("Password Again", "")}
 			minLength={8}
 			onChange={action("onChange")}
-            rtl={true}
-			rules={
-				array("Rules", [
-					"minLength",
-					"specialChar",
-					"number",
-					"capital",
-				]) as Array<RuleNames>
-			}
+			rtl={true}
+			rules={array("Rules", ["minLength", "specialChar", "number", "capital"]) as Array<RuleNames>}
 			messages={{
 				minLength: "رمز عبور باید حداقل ۸ کارکتر باشد.",
 				specialChar: "رمز عبور باید شامل کاراکترهای خاص (نمادها) باشد",

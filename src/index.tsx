@@ -211,11 +211,12 @@ const UL = styled.ul`
 const LI = styled.li`
 	list-style-type: none;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	margin: 2px 0;
 	& > span {
 		padding-top: 2px;
 		opacity: ${(props) => (props.className === "valid" ? 1 : 0.5)};
+		flex: 1;
 	}
 `
 const Svg = styled.svg`
