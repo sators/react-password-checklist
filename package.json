@@ -47,7 +47,7 @@
 		"build": "tsc",
 		"build-storybook": "build-storybook",
 		"coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-		"prepare": "npm run build",
+		"prepare": "npm run test && npm run build",
 		"start": "npm run storybook",
 		"storybook": "start-storybook -p 9009",
 		"test": "jest",
