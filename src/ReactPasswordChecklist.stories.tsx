@@ -30,6 +30,29 @@ storiesOf("ReactPasswordChecklist", module)
 			}
 		/>
 	))
+	.add("With a custom class name", () => (
+		<ReactPasswordChecklist
+			className={text("Class Name", "my-custom-class")}
+			value={text("Password", "")}
+			valueAgain={text("Password Again", "")}
+			minLength={number("Minimum Length", 8)}
+			maxLength={number("Maximum Length", 16)}
+			onChange={action("onChange")}
+			rtl={boolean("rtl", getDirection() == "rtl")}
+			rules={
+				array("Rules", [
+					"minLength",
+					"specialChar",
+					"number",
+					"capital",
+					"match",
+					"notEmpty",
+					"maxLength",
+					"lowercase",
+				]) as Array<RuleNames>
+			}
+		/>
+	))
 	.add("In a small container", () => (
 		<div style={{ width: "225px" }}>
 			<ReactPasswordChecklist
@@ -53,6 +76,32 @@ storiesOf("ReactPasswordChecklist", module)
 				}
 			/>
 		</div>
+	))
+	.add("Custom Icon and Colors", () => (
+		<ReactPasswordChecklist
+			className={text("Class Name", "my-custom-class")}
+			value={text("Password", "")}
+			valueAgain={text("Password Again", "")}
+			minLength={number("Minimum Length", 8)}
+			maxLength={number("Maximum Length", 16)}
+			onChange={action("onChange")}
+			rtl={boolean("rtl", getDirection() == "rtl")}
+			rules={
+				array("Rules", [
+					"minLength",
+					"specialChar",
+					"number",
+					"capital",
+					"match",
+					"notEmpty",
+					"maxLength",
+					"lowercase",
+				]) as Array<RuleNames>
+			}
+			iconSize={number("Icon Size", 24)}
+			validColor={text("Valid Icon Color", "#c7ad00")}
+			invalidColor={text("Invalid Icon Color", "#380091")}
+		/>
 	))
 	.add("Custom Messages", () => (
 		<ReactPasswordChecklist

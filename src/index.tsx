@@ -36,7 +36,7 @@ export interface ReactPasswordChecklistProps extends PasswordProps {
 	rules: Array<RuleNames>
 	rtl?: boolean
 }
-const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
+const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
 	className,
 	style,
 	rules,
@@ -143,7 +143,14 @@ const ReactPasswordProps: React.FC<ReactPasswordChecklistProps> = ({
 			{enabledRules.map((rule) => {
 				const { message, valid } = ruleDefinitions[rule]
 				return (
-					<Rule key={rule} valid={valid} {...remainingProps}>
+					<Rule
+						key={rule}
+						valid={valid}
+						iconSize={18}
+						validColor="#4BCA81"
+						invalidColor="#FF0033"
+						{...remainingProps}
+					>
 						{message}
 					</Rule>
 				)
@@ -223,10 +230,4 @@ const Svg = styled.svg`
 	margin-right: 5px;
 `
 
-ReactPasswordProps.defaultProps = {
-	iconSize: 18,
-	validColor: "#4BCA81",
-	invalidColor: "#FF0033",
-}
-
-export default ReactPasswordProps
+export default ReactPasswordChecklist
