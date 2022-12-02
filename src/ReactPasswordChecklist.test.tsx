@@ -72,7 +72,7 @@ describe("ReactPasswordChecklist Test Suite", () => {
 	describe("minLength", () => {
 		it("Displays the default minLength message", () => {
 			const result = mount(<ReactPasswordChecklist rules={["minLength"]} minLength={6} value="" />)
-			expect(result.find("span").text()).toEqual("Password has more than 6 characters.")
+			expect(result.find("span").text()).toEqual("Password has at least 6 characters.")
 		})
 		it("Sets invalid", () => {
 			const result = mount(
