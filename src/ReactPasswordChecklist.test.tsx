@@ -217,6 +217,26 @@ describe("ReactPasswordChecklist Test Suite", () => {
 			const result = mount(<ReactPasswordChecklist rules={["specialChar"]} value=")" />)
 			expect(result.find("li").hasClass("valid")).toBeTruthy()
 		})
+		it("Allows for a custom set of specialCharacters regular expression", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["specialChar"]}
+					value="1234567812345678"
+					specialCharsRegex={/[\s\S]/g}
+				/>,
+			)
+			expect(result.find("li").hasClass("valid")).toBeTruthy()
+		})
+		it("Allows for a custom set of specialCharacters regular expression that fails", () => {
+			const result = mount(
+				<ReactPasswordChecklist
+					rules={["specialChar"]}
+					value="1234567812345678"
+					specialCharsRegex={/[\s]/g}
+				/>,
+			)
+			expect(result.find("li").hasClass("invalid")).toBeTruthy()
+		})
 	})
 	describe("capital", () => {
 		it("Displays the default capital message", () => {
