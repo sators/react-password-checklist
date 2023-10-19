@@ -15,10 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
