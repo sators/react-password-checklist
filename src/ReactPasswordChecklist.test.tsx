@@ -53,6 +53,17 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		)
 		expect(result.find("svg").exists()).toBeFalsy()
 	})
+	it("shows the icons when hideIcon prop is false", () => {
+		const result = mount(
+			<ReactPasswordChecklist
+				rules={["minLength"]}
+				minLength={6}
+				value="123456"
+				hideIcon={false}
+			/>,
+		)
+		expect(result.find("svg").exists()).toBeTruthy()
+	})
 	it("uses the validTextColor prop when valid", () => {
 		const result = mount(
 			<ReactPasswordChecklist
