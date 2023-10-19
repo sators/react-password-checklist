@@ -35,6 +35,12 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		)
 		expect(result.find("ul").hasClass("test rtl")).toBeTruthy()
 	})
+	it("hides the icons when hideIcon prop is true", () => {
+		const result = mount(
+			<ReactPasswordChecklist rules={["minLength"]} minLength={6} value="123456" hideIcon />,
+		)
+		expect(result.find("svg").exists()).toBeFalsy()
+	})
 	describe("iconComponents", () => {
 		it("has the default icons", () => {
 			const result = mount(

@@ -15,6 +15,7 @@ storiesOf("ReactPasswordChecklist", module)
 			minLength={number("Minimum Length", 8)}
 			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
+			hideIcon={boolean("Hide Icon", false)}
 			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
@@ -38,6 +39,7 @@ storiesOf("ReactPasswordChecklist", module)
 			minLength={number("Minimum Length", 8)}
 			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
+			hideIcon={boolean("Hide Icon", false)}
 			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
@@ -61,6 +63,7 @@ storiesOf("ReactPasswordChecklist", module)
 				minLength={number("Minimum Length", 8)}
 				maxLength={number("Maximum Length", 16)}
 				onChange={action("onChange")}
+				hideIcon={boolean("Hide Icon", false)}
 				rtl={boolean("rtl", getDirection() == "rtl")}
 				rules={
 					array("Rules", [
@@ -85,6 +88,7 @@ storiesOf("ReactPasswordChecklist", module)
 			minLength={number("Minimum Length", 8)}
 			maxLength={number("Maximum Length", 16)}
 			onChange={action("onChange")}
+			hideIcon={boolean("Hide Icon", false)}
 			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
@@ -109,6 +113,7 @@ storiesOf("ReactPasswordChecklist", module)
 			valueAgain={text("Password Again", "")}
 			minLength={number("Minimum Length", 8)}
 			onChange={action("onChange")}
+			hideIcon={boolean("Hide Icon", false)}
 			rtl={boolean("rtl", getDirection() == "rtl")}
 			rules={
 				array("Rules", [
@@ -134,6 +139,7 @@ storiesOf("ReactPasswordChecklist", module)
 			valueAgain={text("Password Again", "")}
 			minLength={8}
 			onChange={action("onChange")}
+			hideIcon={boolean("Hide Icon", false)}
 			rtl={true}
 			rules={array("Rules", ["minLength", "specialChar", "number", "capital"]) as Array<RuleNames>}
 			messages={{
