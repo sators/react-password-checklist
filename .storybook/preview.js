@@ -1,5 +1,5 @@
 import { configure, addDecorator } from "@storybook/react";
-import GlobalStyle from "./globalStyle"
+import "./global-styles.css";
 import * as React from "react";
 const req = require.context("../src", true, /\.stories\.tsx$/);
 function loadStories() {
@@ -8,7 +8,6 @@ function loadStories() {
 addDecorator(style => {
     return (
         <>
-            <GlobalStyle />
             {style()}
         </>
     )
