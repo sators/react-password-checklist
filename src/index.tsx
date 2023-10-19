@@ -12,7 +12,7 @@ interface PasswordProps {
 	iconSize?: number
 	validColor?: string
 	invalidColor?: string
-	onChange?: (isValid: boolean) => any
+	onChange?: (isValid: boolean, failedRules: RuleNames[]) => any
 	messages?: {
 		[key in RuleNames]?: string
 	}
@@ -130,7 +130,10 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
 	}, [value, valueAgain])
 	useEffect(() => {
 		if (typeof onChange === "function") {
-			onChange(isValid)
+			onChange(
+				isValid,
+				enabledRules.filter((rule) => !ruleDefinitions[rule].valid),
+			)
 		}
 	}, [isValid])
 
