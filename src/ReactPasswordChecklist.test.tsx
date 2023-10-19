@@ -53,6 +53,36 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		)
 		expect(result.find("svg").exists()).toBeFalsy()
 	})
+	it("uses the validTextColor prop when valid", () => {
+		const result = mount(
+			<ReactPasswordChecklist
+				rules={["minLength"]}
+				minLength={6}
+				value="123456"
+				validTextColor="green"
+			/>,
+		)
+		expect(result.find("span").props().style?.color).toEqual("green")
+	})
+	it("uses the invalidTextColor prop when invalid", () => {
+		const result = mount(
+			<ReactPasswordChecklist
+				rules={["minLength"]}
+				minLength={6}
+				value="12345"
+				invalidTextColor="red"
+			/>,
+		)
+		expect(result.find("span").props().style?.color).toEqual("red")
+		expect(result.find("span").props().style?.opacity).toEqual(undefined)
+	})
+	it("gracefully handles if text colors are not defined", () => {
+		const result = mount(
+			<ReactPasswordChecklist rules={["minLength"]} minLength={8} value="123456" />,
+		)
+		expect(result.find("span").props().style?.color).toEqual(undefined)
+		expect(result.find("span").props().style?.opacity).toEqual(0.5)
+	})
 	describe("iconComponents", () => {
 		it("has the default icons", () => {
 			const result = mount(

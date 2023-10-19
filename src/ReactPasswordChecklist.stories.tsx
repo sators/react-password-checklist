@@ -105,6 +105,8 @@ storiesOf("ReactPasswordChecklist", module)
 			iconSize={number("Icon Size", 24)}
 			validColor={text("Valid Icon Color", "#c7ad00")}
 			invalidColor={text("Invalid Icon Color", "#380091")}
+			validTextColor={text("Valid Text Color", "ForestGreen")}
+			invalidTextColor={text("Invalid Text Color", "fuchsia")}
 		/>
 	))
 	.add("Custom Messages", () => (

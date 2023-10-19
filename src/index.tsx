@@ -12,6 +12,8 @@ interface PasswordProps {
 	iconSize?: number
 	validColor?: string
 	invalidColor?: string
+	validTextColor?: string
+	invalidTextColor?: string
 	onChange?: (isValid: boolean, failedRules: RuleNames[]) => any
 	messages?: {
 		[key in RuleNames]?: string
@@ -176,6 +178,8 @@ interface RuleProps {
 	iconComponents?: CustomIconComponents
 	validColor?: string
 	invalidColor?: string
+	validTextColor?: string
+	invalidTextColor?: string
 	rtl?: boolean
 	hideIcon?: boolean
 	children?: React.ReactNode
@@ -185,6 +189,8 @@ const Rule: React.FC<RuleProps> = ({
 	iconSize,
 	validColor,
 	invalidColor,
+	validTextColor,
+	invalidTextColor,
 	iconComponents,
 	hideIcon,
 	rtl,
@@ -231,8 +237,9 @@ const Rule: React.FC<RuleProps> = ({
 			<span
 				style={{
 					paddingTop: 2,
-					opacity: valid ? 1 : 0.5,
+					opacity: valid ? 1 : !invalidTextColor ? 0.5 : undefined,
 					flex: 1,
+					color: valid ? validTextColor : invalidTextColor,
 				}}
 			>
 				{children}
