@@ -29,6 +29,20 @@ describe("ReactPasswordChecklist Test Suite", () => {
 		)
 		expect(onChange).toHaveBeenCalledWith(false, ["minLength", "specialChar"])
 	})
+	it("calls onChange when a rule changes from invalid to valid", () => {
+		const onChange = jest.fn()
+		const result = mount(
+			<ReactPasswordChecklist
+				rules={["minLength", "specialChar", "number"]}
+				minLength={6}
+				value="12345"
+				onChange={onChange}
+			/>,
+		)
+		expect(onChange).toHaveBeenCalledWith(false, ["minLength", "specialChar"])
+		result.setProps({ value: "123456" })
+		expect(onChange).toHaveBeenCalledWith(false, ["specialChar"])
+	})
 	it("sets rtl className when `rtl` prop is set", () => {
 		const result = mount(
 			<ReactPasswordChecklist rules={["minLength"]} minLength={6} value="123456" rtl />,
