@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useMemo, useEffect } from "react"
 
 interface CustomIconComponents {
 	ValidIcon: React.ReactNode
@@ -53,7 +53,6 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
 	messages = {},
 	...remainingProps
 }) => {
-	const [isValid, setIsValid] = useState(false)
 	const ruleDefinitions: {
 		[key in RuleNames]: { valid: boolean; message: string }
 	} = {
@@ -124,22 +123,21 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
 			message: messages.notEmpty || "Password fields are not empty.",
 		},
 	}
-	const enabledRules = rules.filter((rule) => Boolean(ruleDefinitions[rule]))
-	useEffect(() => {
-		if (enabledRules.every((rule) => ruleDefinitions[rule].valid)) {
-			setIsValid(true)
-		} else {
-			setIsValid(false)
-		}
-	}, [value, valueAgain])
+	const enabledRules: RuleNames[] = useMemo(
+		() => rules.filter((rule) => Boolean(ruleDefinitions[rule])),
+		[rules],
+	)
+	const isValid: boolean = enabledRules.every((rule) => ruleDefinitions[rule].valid)
+	const failedRules: RuleNames[] = useMemo(
+		() => enabledRules.filter((rule) => !ruleDefinitions[rule].valid),
+		[value, valueAgain, enabledRules],
+	)
+
 	useEffect(() => {
 		if (typeof onChange === "function") {
-			onChange(
-				isValid,
-				enabledRules.filter((rule) => !ruleDefinitions[rule].valid),
-			)
+			onChange(isValid, failedRules)
 		}
-	}, [isValid])
+	}, [isValid, failedRules])
 
 	if (rtl) {
 		className = className ? className + " rtl" : "rtl"
