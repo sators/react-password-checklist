@@ -3,19 +3,27 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom", "esnext"],
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "es2017",
+      "dom",
+      "esnext"
+    ],
     "sourceMap": false,
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDirs": ["src"],
+    "rootDirs": [
+      "src"
+    ],
     "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "declaration": true,
     "allowSyntheticDefaultImports": true,
@@ -24,6 +32,13 @@
     "skipLibCheck": true,
     "esModuleInterop": true
   },
-  "include": ["src/index.tsx"],
-  "exclude": ["node_modules", "dist", "scripts", "stories.*"]
-  }
+  "include": [
+    "src/index.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "scripts",
+    "stories.*"
+  ]
+}
