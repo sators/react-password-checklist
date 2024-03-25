@@ -202,7 +202,7 @@ const Rule: React.FC<RuleProps> = ({
 			style={{
 				listStyleType: "none",
 				display: "flex",
-				alignItems: "flex-start",
+				alignItems: "center",
 				margin: "2px 0",
 			}}
 		>
