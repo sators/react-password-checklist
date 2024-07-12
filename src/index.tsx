@@ -123,7 +123,7 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
         valueHasCapitalCharacters(value) && valueHasLowercaseCharacters(value),
       message:
         messages.capitalAndLowerCase ||
-        "Password Contains at least one uppercase and lowercase characters"
+        "Password contains at least one uppercase and lowercase characters."
     },
     letter: {
       valid: /[a-zA-Z]/g.test(value),
@@ -141,7 +141,7 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
     },
     noSpaces: {
       valid: !value.includes(" "),
-      message: messages.noSpaces || "Password Contains no spaces"
+      message: messages.noSpaces || "Password contains no spaces."
     }
   }
   const enabledRules: RuleNames[] = useMemo(
