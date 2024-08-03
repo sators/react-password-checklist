@@ -119,11 +119,19 @@ Valid if the password contains a lowercase letter
 
 Valid if the password and confirm passwords both contain any character. Requires `valueAgain` prop to be included.
 
+#### capitalAndLowercase
+
+Valid if the password contains both a capital letter and lowercase letter.
+
+#### noSpaces
+
+Valid if the password does not contain a space.
+
 ## Props
 
 | Prop              | Description                                                                                                                                                                                                                               | Type     | Required                        | Default                                                       |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------- | ------------------------------------------------------------- |
-| rules             | Rules to display in the order desired.<br />Options are `minLength`, `maxLength`, `specialChar`,<br />`number`, `letter`, `capital`, `match`, <br />`lowercase`, `notEmpty`                                                               | array    | yes                             |
+| rules             | Rules to display in the order desired.<br />Options are `minLength`, `maxLength`, `specialChar`,<br />`number`, `letter`, `capital`, `match`, <br />`lowercase`, `notEmpty`, `capitalAndLowercase`, `noSpaces`                            | array    | yes                             |
 | value             | Current potential password                                                                                                                                                                                                                | string   | yes                             |
 | valueAgain        | Current potential password confirmation                                                                                                                                                                                                   | string   | Only with<br />`match` rule     |
 | minLength         | Minimum Password Length                                                                                                                                                                                                                   | number   | Only with<br />`minLength` rule |
