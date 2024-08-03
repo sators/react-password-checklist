@@ -27,6 +27,8 @@ storiesOf("ReactPasswordChecklist", module)
 					"notEmpty",
 					"maxLength",
 					"lowercase",
+					"noSpaces",
+					"capitalAndLowerase",
 				]) as Array<RuleNames>
 			}
 		/>
