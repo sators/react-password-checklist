@@ -161,6 +161,6 @@ PRs are welcome for additional functionality! See the Run Locally section below.
 
 ## Run Locally
 
-`yarn` to install dependencies.
+`npm i` to install dependencies.
 
-`yarn storybook`
+`npm run storybook`

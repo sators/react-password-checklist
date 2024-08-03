@@ -1,21 +1,21 @@
 sudo: false
 language: node_js
 node_js:
-  - "14"
-cache: yarn
+  - "20"
+cache: npm
 before_install:
-  - yarn upgrade
+  - npm upgrade
 install:
-  - yarn install
+  - npm install
 jobs:
   include:
     - stage: test
       script:
-        - yarn test
+        - npm test
     - stage: coverage
       script:
-        - yarn test
-        - yarn coveralls
+        - npm test
+        - npm coveralls
 stages:
   - name: test
     # require the type to be a PR

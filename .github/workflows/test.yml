@@ -6,8 +6,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install modules
-        run: yarn
+        run: npm
       - name: Run tests
-        run: yarn test:coverage
+        run: npm test:coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v2
