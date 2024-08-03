@@ -1,6 +1,6 @@
 {
   "name": "react-password-checklist",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "keywords": [
     "password",
     "strength",
@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-	  "@pxblue/storybook-rtl-addon": "^1.1.0",
+    "@pxblue/storybook-rtl-addon": "^1.1.0",
     "@storybook/addon-essentials": "^8.2.7",
     "@storybook/addon-interactions": "^8.2.7",
     "@storybook/addon-links": "^8.2.7",
