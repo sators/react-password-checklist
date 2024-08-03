@@ -8,6 +8,6 @@ jobs:
       - name: Install modules
         run: npm install
       - name: Run tests
-        run: npm test:coverage
+        run: npm run test:coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v2
