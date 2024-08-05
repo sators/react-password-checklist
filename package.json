@@ -43,6 +43,7 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "build-storybook": "storybook build",
