@@ -293,20 +293,28 @@ describe("ReactPasswordChecklist Test Suite", () => {
 			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value="Idonthavespaces" />)
 			expect(result.find("li").hasClass("valid")).toBeTruthy()
 		})
-		it("Sets invalid for space", () => {
-			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value="I have spaces" />)
-			expect(result.find("li").hasClass("invalid")).toBeTruthy()
-		})
 		it("Sets invalid for an empty value", () => {
 			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value="" />)
 			expect(result.find("li").hasClass("invalid")).toBeTruthy()
 		})
-		it("Sets invalid for tab spaces", () => {
+		it("Sets invalid for space (' ') ", () => {
+			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value="I have spaces" />)
+			expect(result.find("li").hasClass("invalid")).toBeTruthy()
+		})
+		it("Sets invalid for tab space character (\t)", () => {
 			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value={`ihave\tatabspace`} />)
 			expect(result.find("li").hasClass("invalid")).toBeTruthy()
 		})
-		it("Sets invalid for new lines", () => {
+		it("Sets invalid for new line character (\n)", () => {
 			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value={`Ihave\nanewline`} />)
+			expect(result.find("li").hasClass("invalid")).toBeTruthy()
+		})
+		it("Sets invalid for carriage return character (\r)", () => {
+			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value={`Ihaveacarriage\rreturn`} />)
+			expect(result.find("li").hasClass("invalid")).toBeTruthy()
+		})
+		it("Sets invalid for form feed character (\f)", () => {
+			const result = mount(<ReactPasswordChecklist rules={["noSpaces"]} value={`Ihavea\fformfeed`} />)
 			expect(result.find("li").hasClass("invalid")).toBeTruthy()
 		})
 	})
