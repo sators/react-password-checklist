@@ -136,7 +136,7 @@ const ReactPasswordChecklist: React.FC<ReactPasswordChecklistProps> = ({
 			message: messages.notEmpty || "Password fields are not empty.",
 		},
 		noSpaces: {
-			valid: !value.includes(" "),
+			valid: Boolean(value.length > 0 && !/\s/.test(value)),
 			message: messages.noSpaces || "Password contains no spaces.",
 		},
 	}
